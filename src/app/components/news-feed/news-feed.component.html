@@ -1,0 +1,8 @@
+<div class="rounded bg-gray-700 w-full py-4 px-2">
+    <div class="mb-1 mx-auto font-weight-bold text-center">
+        <h3 class="text-lg">Hurricane Dorian</h3>
+    </div>
+    <div *ngFor="let article of articles; index as i" class="rounded-full p-1 pl-4 bg-gray-600 hover:shadow hover:bg-gray-500 hover:text-black my-2 text-sm">
+        <p>{{article}}</p>
+    </div>
+</div>
