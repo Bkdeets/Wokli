@@ -6,7 +6,7 @@
   <div id="row-2" class="w-9/12">
     <div class="flex">
       <div id="chart" class="mb-5 bg-grey-500 rounded w-10/12">
-          <app-bubble-chart [topics]="topics"></app-bubble-chart>
+          <app-bubble-chart [topics]="topics" [selected_topic]="selected_topic"></app-bubble-chart>
       </div>
       <div class="w-2/12 pl-2 py-1">
         <p class="">{{selected_topic.name}}</p>

@@ -1,22 +1,31 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Chart } from 'chart.js';
+import { DEFAULT_INTERPOLATION_CONFIG } from '@angular/compiler';
 
 @Component({
   selector: 'app-bubble-chart',
   templateUrl: './bubble-chart.component.html',
   styleUrls: ['./bubble-chart.component.scss']
 })
-export class BubbleChartComponent implements OnInit {
+export class BubbleChartComponent implements OnInit, OnChanges {
   @Input() topics: any;
+  @Input() selected_topic: any;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.topics);
     this.requestData();
   }
 
-  requestData() {
+  ngOnChanges() {
+    this.requestData(false);
+  }
+
+  requestData(animate=true) {
+    var duration = 1000;
+    if (!animate){
+      duration = 0;
+    }
     var canvas: any = document.getElementById("chartCanvas");
     var ctx = canvas.getContext("2d");
     var chart = new Chart(ctx, {
@@ -25,6 +34,9 @@ export class BubbleChartComponent implements OnInit {
       options: {
         legend: {
           display: false
+        },
+        animation: {
+          duration: duration,
         },
         layout: {
           padding: {
@@ -64,7 +76,12 @@ export class BubbleChartComponent implements OnInit {
     for (var index in this.topics){
       
       var label = this.topics[index].name;
-      var backgroundColor = this.getBgColor(this.topics[index].sentiment_score);
+      var opacity = .4;
+
+      if (label == this.selected_topic.name) {
+        opacity = .9;
+      }
+      var backgroundColor = this.getBgColor(this.topics[index].sentiment_score, opacity);
       var borderColor = this.getBorderColor(this.topics[index].category);
       var x = this.topics[index].time_active;
       var y = this.topics[index].sentiment_score;
@@ -101,11 +118,12 @@ export class BubbleChartComponent implements OnInit {
 
   }
 
-  getBgColor(sentiment: number){
+  getBgColor(sentiment: number, opacity: number){
     if(sentiment >= 0){
-      return "rgba(77, 255, 157, .4)"
+      console.log("rgba(77, 255, 157,".concat(String(opacity).concat(")")));
+      return "rgba(77, 255, 157,".concat(String(opacity).concat(")"));
     } else {
-      return "rgba(255, 77, 77, .4)"
+      return "rgba(255, 77, 77,".concat(String(opacity).concat(")"));;
     }
   }
 }

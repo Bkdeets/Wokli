@@ -13,7 +13,6 @@ export class NewsFeedComponent implements OnChanges, OnInit {
   constructor() { }
 
   ngOnInit(){
-    console.log(this.topic);
     this.articles = this.topic.news_items;
   }
 
