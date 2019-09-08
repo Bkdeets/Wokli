@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./topic-list.component.scss']
 })
 export class TopicListComponent implements OnInit {
-  @Input() topics: Array<String>;
+  @Input() topics: Array<Object>;
   @Output() selected: EventEmitter<String> = new EventEmitter();
 
 

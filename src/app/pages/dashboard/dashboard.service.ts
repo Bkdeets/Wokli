@@ -6,6 +6,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 export class DashboardService {
 
   selectedTopic: String;
+  
 
   constructor() { }
 

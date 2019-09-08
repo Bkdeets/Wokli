@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Chart } from 'chart.js';
 
 @Component({
@@ -7,10 +7,12 @@ import { Chart } from 'chart.js';
   styleUrls: ['./bubble-chart.component.scss']
 })
 export class BubbleChartComponent implements OnInit {
+  @Input() topics: any;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.topics);
     this.requestData();
   }
 
@@ -19,55 +21,7 @@ export class BubbleChartComponent implements OnInit {
     var ctx = canvas.getContext("2d");
     var chart = new Chart(ctx, {
       type: "bubble",
-      data: {
-        datasets: [
-          {
-            label: "Topic 1",
-            backgroundColor: "rgb(200, 99, 132)",
-            data: [{
-              x: 2,
-              y: -70,
-              r: 20
-            }]
-          },
-          {
-            label: "Topic 2",
-            backgroundColor: "rgb(25, 299, 132)",
-            data: [{
-              x: 4,
-              y: 39,
-              r: 6
-            }]
-          },
-          {
-            label: "Topic 3",
-            backgroundColor: "rgb(25, 200, 12)",
-            data: [{
-              x: 9,
-              y: 67,
-              r: 15
-            }]
-          },
-          {
-            label: "Topic 4",
-            backgroundColor: "rgb(25, 200, 12)",
-            data: [{
-              x: 5,
-              y: 10,
-              r: 50
-            }]
-          },
-          {
-            label: "Topic 5",
-            backgroundColor: "rgb(25, 20, 12)",
-            data: [{
-              x: 10,
-              y: 50,
-              r: 30
-            }]
-          }
-        ]
-      },
+      data: this.setData(),
       options: {
         legend: {
           display: false
@@ -100,5 +54,58 @@ export class BubbleChartComponent implements OnInit {
         }
       }
     });
+  }
+
+  setData(){
+    var data = {
+      datasets: []
+    };
+
+    for (var index in this.topics){
+      
+      var label = this.topics[index].name;
+      var backgroundColor = this.getBgColor(this.topics[index].sentiment_score);
+      var borderColor = this.getBorderColor(this.topics[index].category);
+      var x = this.topics[index].time_active;
+      var y = this.topics[index].sentiment_score;
+      var r = this.topics[index].wokli_score;
+
+      var dataset = {
+        label: label,
+        backgroundColor: backgroundColor,
+        borderColor: borderColor,
+        borderWidth: 3,
+        data: [{
+          x: x,
+          y: y,
+          r: r
+        }]
+      };
+      console.log(dataset.label);
+      data.datasets.push(dataset);
+
+    }
+    console.log(data);
+    return data;
+  }
+
+  getBorderColor(category: String) {
+    switch (category){
+      case 'Politics':
+        return "#ffb84d";
+      case 'Weather':
+          return "rgba(180, 206, 240)";
+      case 'Finance':
+          return "rgba(3, 212, 65)";
+    }
+
+  }
+
+  getBgColor(sentiment: number){
+    if(sentiment >= 0){
+      return "rgba(77, 255, 157, .4)"
+    } else {
+      return "rgba(255, 77, 77, .4)"
+    }
   }
 }

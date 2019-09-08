@@ -3,9 +3,9 @@
     <div 
         *ngFor="let topic of topics; index as i" 
         class="rounded-full p-1 pl-2 bg-gray-600 flex items-center hover:shadow hover:bg-gray-800 my-2"
-        (click)="setDashboardTopic(topic)"
+        (click)="setDashboardTopic(topic.name)"
         >
             <app-topic-number number="{{i+1}}" id="{{i+1}}number"></app-topic-number>
-            <p>{{topic}}</p>
+            <p>{{topic.name}}</p>
     </div>
 </div>
