@@ -11,6 +11,8 @@ import { NumberCircleComponent } from './components/number-circle/number-circle.
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { SentimentPieComponent } from './components/sentiment-pie/sentiment-pie.component';
 import { BubbleChartComponent } from './components/bubble-chart/bubble-chart.component';
+import { TopicNumberComponent } from './components/topic-number/topic-number.component';
+import { NewsSourcePillComponent } from './components/news-source-pill/news-source-pill.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { BubbleChartComponent } from './components/bubble-chart/bubble-chart.com
     NumberCircleComponent,
     LineChartComponent,
     SentimentPieComponent,
-    BubbleChartComponent
+    BubbleChartComponent,
+    TopicNumberComponent,
+    NewsSourcePillComponent
   ],
   imports: [
     BrowserModule,

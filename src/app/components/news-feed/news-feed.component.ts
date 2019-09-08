@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsFeedComponent implements OnInit {
   articles = [
-    'NYT - Bahamas Destroyed - "The storm was category 5 when it made la..."',
-    'TWTR - "Dorian makes landfall in Abaco Island"',
-    'WP - NC/SC/GA Prepare for Dorian - "The southeastern United States ..."',
-    'NOAA - 8:00AM Update Discussion - "Hurricane Dorian has been downgr..."'
+    'Bahamas Destroyed - "The storm was category 5 when it made la..."',
+    '"Dorian makes landfall in Abaco Island"',
+    'NC/SC/GA Prepare for Dorian - "The southeastern United States ..."',
+    '8:00AM Update Discussion - "Hurricane Dorian has been downgr..."'
   ]
   constructor() { }
 

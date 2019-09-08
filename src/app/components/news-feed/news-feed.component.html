@@ -2,7 +2,8 @@
     <div class="mb-1 mx-auto font-weight-bold text-center">
         <h3 class="text-lg">Hurricane Dorian</h3>
     </div>
-    <div *ngFor="let article of articles; index as i" class="rounded-full p-1 pl-4 bg-gray-600 hover:shadow hover:bg-gray-500 hover:text-black my-2 text-sm">
+    <div *ngFor="let article of articles; index as i" class="flex rounded-full p-1 bg-gray-600 hover:shadow hover:bg-gray-800 my-2 text-sm">
+        <app-topic-number number="NYT" id="{{i+1}}number"></app-topic-number>
         <p>{{article}}</p>
     </div>
 </div>
