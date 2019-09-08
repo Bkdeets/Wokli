@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { DashboardService } from './../../pages/dashboard/dashboard.service';
+import { DashboardComponent } from './../../pages/dashboard/dashboard.component';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-topic-list',
@@ -6,23 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topic-list.component.scss']
 })
 export class TopicListComponent implements OnInit {
+  @Input() topics: Array<String>;
+  @Output() selected: EventEmitter<String> = new EventEmitter();
 
-  topics = [
-    'Hurricane Dorian',
-    'Diving Boat Fire',
-    'Hurricane Season',
-    'Trump Tweet',
-    'Brexit',
-    'Yield Curve Inversion',
-    '2020 Olympics',
-    '2020 Election',
-    'Viral Vidoe',
-    'Meme'
-  ]
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setDashboardTopic(topic){
+    this.selected.emit(topic);
   }
 
 }

@@ -1,7 +1,11 @@
 <div class="rounded bg-gray-700 w-full py-4 px-2">
     <h3 class="text-lg text-center mb-1">Top Topics</h3>
-    <div *ngFor="let topic of topics; index as i" class="rounded-full p-1 pl-2 bg-gray-600 flex items-center hover:shadow hover:bg-gray-800 my-2">
-        <app-topic-number number="{{i+1}}" id="{{i+1}}number"></app-topic-number>
-        <p>{{topic}}</p>
+    <div 
+        *ngFor="let topic of topics; index as i" 
+        class="rounded-full p-1 pl-2 bg-gray-600 flex items-center hover:shadow hover:bg-gray-800 my-2"
+        (click)="setDashboardTopic(topic)"
+        >
+            <app-topic-number number="{{i+1}}" id="{{i+1}}number"></app-topic-number>
+            <p>{{topic}}</p>
     </div>
 </div>

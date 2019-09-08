@@ -1,6 +1,6 @@
 <div class="w-100 px-10 py-10 mx-auto flex text-white">
   <div id="row-1" class="w-3/12 mr-5">
-    <app-topic-list topics="{topics}" class=""></app-topic-list>
+    <app-topic-list [topics]="topics" (selected)="setSelectedTopic($event)"class=""></app-topic-list>
     <div class=" mt-5 h-32 bg-white text-black" id="adbox1">Ad Here</div>
   </div>
   <div id="row-2" class="w-9/12">
@@ -9,7 +9,7 @@
           <app-bubble-chart></app-bubble-chart>
       </div>
       <div class="w-2/12 pl-2 py-1">
-        <p class="">Hurricane Dorian</p>
+        <p class="">{{selected_topic}}</p>
         <p class="pb-5 text-sm text-blue-500">Weather</p>
         <p class="">Wokli score (?)</p>
         <p class="pb-5 text-sm text-purple-400">50</p>
@@ -18,7 +18,7 @@
       </div> 
     </div>
     <div class="flex">
-      <app-news-feed topic="{selected_topic}" class="w-10/12"></app-news-feed>
+      <app-news-feed topic="{{selected_topic}}" class="w-10/12"></app-news-feed>
       <div class="ml-5 mt-5 h-32 bg-white text-black w-2/12" id="adbox2">Ad Here</div>
     </div>
   </div>
