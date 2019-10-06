@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
     {
       id: 1,
       name: "Data Structure Test",
+      tags: ['Tag1', 'Tag2', 'Tag3'],
       sentiment_score: 25,
       wokli_score: 67,
       category: "Weather",
@@ -37,6 +38,7 @@ export class DashboardComponent implements OnInit {
     {
       id: 2,
       name: "Data Structure Test 2",
+      tags: ['Tag1', 'Tag2', 'Tag3'],
       sentiment_score: 50,
       wokli_score: 12,
       category: "Finance",
@@ -62,6 +64,7 @@ export class DashboardComponent implements OnInit {
     {
       id: 3,
       name: "Data Structure Test 3",
+      tags: ['Tag1', 'Tag2', 'Tag3'],
       sentiment_score: 51,
       wokli_score: 43,
       category: "Politics",
@@ -87,6 +90,7 @@ export class DashboardComponent implements OnInit {
     {
       id: 4,
       name: "Data Structure Test 4",
+      tags: ['Tag1', 'Tag2', 'Tag3'],
       sentiment_score: -28,
       wokli_score: 43,
       category: "Weather",
