@@ -112,6 +112,84 @@ export class DashboardComponent implements OnInit {
           link: "goheretothis.com"
         },
       ]
+    },
+    {
+      id: 5,
+      name: "Data Structure Test 5",
+      tags: ['Tag1', 'Tag2', 'Tag3'],
+      sentiment_score: 8,
+      wokli_score: 55,
+      category: "Weather",
+      time_active: 3,
+      news_items: [
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+      ]
+    },
+    {
+      id: 6,
+      name: "Data Structure Test 6",
+      tags: ['Tag1', 'Tag2', 'Tag3'],
+      sentiment_score: -58,
+      wokli_score: 82,
+      category: "Weather",
+      time_active: 2,
+      news_items: [
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+      ]
+    },
+    {
+      id: 7,
+      name: "Data Structure Test 7",
+      tags: ['Tag1', 'Tag2', 'Tag3'],
+      sentiment_score: -88,
+      wokli_score: 33,
+      category: "Weather",
+      time_active: 4,
+      news_items: [
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+        {
+          provider_code: "WSJ",
+          summary: "Fee Fi Fo Fum",
+          link: "goheretothis.com"
+        },
+      ]
     }
   ]
 

@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { Chart } from 'chart.js';
-import { DEFAULT_INTERPOLATION_CONFIG } from '@angular/compiler';
+import { Component, OnInit, Input, OnChanges } from "@angular/core";
+import { Chart } from "chart.js";
+import { DEFAULT_INTERPOLATION_CONFIG } from "@angular/compiler";
 
 @Component({
-  selector: 'app-bubble-chart',
-  templateUrl: './bubble-chart.component.html',
-  styleUrls: ['./bubble-chart.component.scss']
+  selector: "app-bubble-chart",
+  templateUrl: "./bubble-chart.component.html",
+  styleUrls: ["./bubble-chart.component.scss"]
 })
 export class BubbleChartComponent implements OnInit, OnChanges {
   @Input() topics: any;
@@ -21,9 +21,9 @@ export class BubbleChartComponent implements OnInit, OnChanges {
     this.requestData(false);
   }
 
-  requestData(animate=true) {
+  requestData(animate = true) {
     var duration = 1000;
-    if (!animate){
+    if (!animate) {
       duration = 0;
     }
     var canvas: any = document.getElementById("chartCanvas");
@@ -36,94 +36,114 @@ export class BubbleChartComponent implements OnInit, OnChanges {
           display: false
         },
         animation: {
-          duration: duration,
+          duration: duration
         },
         layout: {
           padding: {
-              left: 0,
-              right: 50,
-              top: 10,
-              bottom: 10
+            left: 50,
+            right: 50,
+            top: 10,
+            bottom: 10
           }
         },
-        scales: { 
-          yAxes: [{ 
-            ticks: { 
-              beginAtZero: false,
-              min: -100, 
-              max: 100
-            },
-          labels: {
-            display: false
-          }
-          }],
-          xAxes: [{ 
-            ticks: { 
-              beginAtZero: true,
-              min: 1
-            } 
-          }]  
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: false,
+                min: -100,
+                max: 100,
+                display: false
+              },
+              labels: {
+                display: false
+              },
+              gridLines: {
+                display: false,
+                drawBorder: false
+              }
+            }
+          ],
+          xAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+                min: 1,
+                display: false
+              },
+              gridLines: {
+                display: false,
+                drawBorder: false
+              },
+              labels: {
+                display: true
+              }
+            }
+          ]
         }
       }
     });
   }
 
-  setData(){
+  setData() {
     var data = {
       datasets: []
     };
 
-    for (var index in this.topics){
-      
+    for (var index in this.topics) {
       var label = this.topics[index].name;
-      var opacity = .4;
+      var opacity = 0.4;
 
       if (label == this.selected_topic.name) {
-        opacity = .9;
+        opacity = .8;
       }
-      var backgroundColor = this.getBgColor(this.topics[index].sentiment_score, opacity);
+      var backgroundColor = this.getBgColor(
+        this.topics[index].sentiment_score,
+        opacity
+      );
       var borderColor = this.getBorderColor(this.topics[index].category);
       var x = this.topics[index].time_active;
       var y = this.topics[index].sentiment_score;
-      var r = this.topics[index].wokli_score;
+      var r = this.topics[index].wokli_score / 1.75;
 
       var dataset = {
         label: label,
         backgroundColor: backgroundColor,
         borderColor: borderColor,
         borderWidth: 3,
-        data: [{
-          x: x,
-          y: y,
-          r: r
-        }]
+        hoverBorderWidth: 5,
+        data: [
+          {
+            x: x,
+            y: y,
+            r: r
+          }
+        ]
       };
       console.log(dataset.label);
       data.datasets.push(dataset);
-
     }
     console.log(data);
     return data;
   }
 
   getBorderColor(category: String) {
-    switch (category){
-      case 'Politics':
-        return "#ffb84d";
-      case 'Weather':
-          return "rgba(180, 206, 240)";
-      case 'Finance':
-          return "rgba(3, 212, 65)";
+    switch (category) {
+      case "Politics":
+        return "#f5b802";
+      case "Weather":
+        return "#02b4f5";
+      case "Finance":
+        return "rgba(3, 212, 65)";
     }
-
   }
 
-  getBgColor(sentiment: number, opacity: number){
-    if(sentiment >= 0){
+  getBgColor(sentiment: number, opacity: number) {
+    if (sentiment >= 0) {
       console.log("rgba(77, 255, 157,".concat(String(opacity).concat(")")));
       return "rgba(77, 255, 157,".concat(String(opacity).concat(")"));
     } else {
-      return "rgba(255, 77, 77,".concat(String(opacity).concat(")"));;
+      return "rgba(255, 77, 77,".concat(String(opacity).concat(")"));
     }
   }
 }
