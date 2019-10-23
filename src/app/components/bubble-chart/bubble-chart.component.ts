@@ -1,3 +1,4 @@
+import { DashboardComponent } from './../../pages/dashboard/dashboard.component';
 import { Component, OnInit, Input, OnChanges } from "@angular/core";
 import { Chart } from "chart.js";
 import { DEFAULT_INTERPOLATION_CONFIG } from "@angular/compiler";
@@ -10,8 +11,10 @@ import { DEFAULT_INTERPOLATION_CONFIG } from "@angular/compiler";
 export class BubbleChartComponent implements OnInit, OnChanges {
   @Input() topics: any;
   @Input() selected_topic: any;
+  dc: DashboardComponent;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
     this.requestData();
@@ -34,6 +37,16 @@ export class BubbleChartComponent implements OnInit, OnChanges {
       options: {
         legend: {
           display: false
+        },
+        onClick : (evt, item) => {
+          let index = item[0]._datasetIndex;
+          let topic_name = item[0]._chart.data.datasets[index].label;
+          let event = new CustomEvent("setSelectedTopic", {
+            detail: {
+              topic_name: topic_name
+            }
+          });
+          window.dispatchEvent(event);
         },
         animation: {
           duration: duration
@@ -101,6 +114,10 @@ export class BubbleChartComponent implements OnInit, OnChanges {
         this.topics[index].sentiment_score,
         opacity
       );
+      var hoverBackgroundColor = this.getBgColor(
+        this.topics[index].sentiment_score,
+        .8
+      );
       var borderColor = this.getBorderColor(this.topics[index].category);
       var x = this.topics[index].time_active;
       var y = this.topics[index].sentiment_score;
@@ -108,10 +125,11 @@ export class BubbleChartComponent implements OnInit, OnChanges {
 
       var dataset = {
         label: label,
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor, 
         borderColor: borderColor,
         borderWidth: 3,
         hoverBorderWidth: 5,
+        hoverBackgroundColor: hoverBackgroundColor,
         data: [
           {
             x: x,
@@ -120,10 +138,8 @@ export class BubbleChartComponent implements OnInit, OnChanges {
           }
         ]
       };
-      console.log(dataset.label);
       data.datasets.push(dataset);
     }
-    console.log(data);
     return data;
   }
 
@@ -140,7 +156,6 @@ export class BubbleChartComponent implements OnInit, OnChanges {
 
   getBgColor(sentiment: number, opacity: number) {
     if (sentiment >= 0) {
-      console.log("rgba(77, 255, 157,".concat(String(opacity).concat(")")));
       return "rgba(77, 255, 157,".concat(String(opacity).concat(")"));
     } else {
       return "rgba(255, 77, 77,".concat(String(opacity).concat(")"));

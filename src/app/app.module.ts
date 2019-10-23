@@ -13,6 +13,7 @@ import { SentimentPieComponent } from './components/sentiment-pie/sentiment-pie.
 import { BubbleChartComponent } from './components/bubble-chart/bubble-chart.component';
 import { TopicNumberComponent } from './components/topic-number/topic-number.component';
 import { NewsSourcePillComponent } from './components/news-source-pill/news-source-pill.component';
+import { PillComponent } from './components/pill/pill.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewsSourcePillComponent } from './components/news-source-pill/news-sour
     SentimentPieComponent,
     BubbleChartComponent,
     TopicNumberComponent,
-    NewsSourcePillComponent
+    NewsSourcePillComponent,
+    PillComponent
   ],
   imports: [
     BrowserModule,

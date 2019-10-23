@@ -3,7 +3,10 @@
         <h3 class="text-lg">{{topic.name}}</h3>
     </div>
     <div *ngFor="let article of articles; index as i" class="flex rounded-full p-1 bg-gray-600 hover:shadow hover:bg-gray-800 my-2 text-sm">
-        <app-topic-number [number]="article.provider_code" id="{{i+1}}number"></app-topic-number>
+        <app-pill 
+            [content]="article.provider_code" 
+            [bgColor]="'#9efffa'"
+            id="{{i+1}}number"></app-pill>
         <p>{{article.summary}}</p>
     </div>
 </div>

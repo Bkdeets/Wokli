@@ -1,5 +1,5 @@
 import { DashboardService } from './dashboard.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -200,7 +200,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.selected_topic = this.topics[0];
   }
-
+  @HostListener("window:setSelectedTopic", ['$event.detail'])
+  setSelectedTopicByJS(event) {
+    this.setSelectedTopic(event.topic_name);
+  }
+  
   setSelectedTopic(topic_name: String) {
     for (var index in this.topics) {
       if (this.topics[index].name == topic_name) {

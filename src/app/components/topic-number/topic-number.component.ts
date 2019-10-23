@@ -6,7 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./topic-number.component.scss']
 })
 export class TopicNumberComponent implements OnInit {
-  @Input() number: number;
+  @Input() topic;
+  bgColor: string;
 
   bgColors = [
     "bg-blue-500",
@@ -24,9 +25,21 @@ export class TopicNumberComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.bgColor = this.getBgColor(this.topic.category);
   }
 
-  setColor(){
-    document.getElementById(String(this.number)+'number').classList.add(this.bgColors[this.number-1]);
+  getBgColor(category: String) {
+    switch (category) {
+      case "Politics":
+        return "#f5b802";
+      case "Weather":
+        return "#02b4f5";
+      case "Finance":
+        return "rgba(3, 212, 65)";
+    }
   }
+
+  // setColor(color){
+  //   document.getElementById(String(this.number)+'number').classList.add(this.bgColors[this.number-1]);
+  // }
 }

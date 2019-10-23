@@ -4,15 +4,17 @@
     class="pb-2">
         <div class="rounded-full p-1 pl-2 bg-gray-600 flex items-center hover:shadow hover:bg-gray-800 my-2"
         (click)="setDashboardTopic(topic.name)">
-            <app-topic-number number="{{i+1}}" id="{{i+1}}number"></app-topic-number>
+            <app-topic-number [topic]="topic" id="{{i+1}}number"></app-topic-number>
             <p>{{topic.name}}</p>
         </div>
         <div class="flex pl-4">
-            <app-topic-number 
-            *ngFor="let tag of topic.tags; index as i"
-            number="{{tag}}" id="{{i+1}}tag"
-            class="text-xs">
-            </app-topic-number>
+            <app-pill 
+                *ngFor="let tag of topic.tags; index as i"
+                [content]="tag" 
+                [bgColor]="'#9efffa'"
+                id="{{i+1}}tag"
+                class="text-xs">
+            </app-pill>
         </div>
     </div>
 </div>
