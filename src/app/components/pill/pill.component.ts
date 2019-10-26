@@ -12,6 +12,9 @@ export class PillComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.bgColor) {
+      this.bgColor = 'transparent';
+    }
   }
 
 }

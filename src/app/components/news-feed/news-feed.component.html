@@ -1,8 +1,8 @@
-<div class="rounded bg-gray-700 w-full py-4 px-2">
+<div class="rounded bg-gray-700 w-full py-4">
     <div class="mb-1 mx-auto font-weight-bold text-center">
         <h3 class="text-lg">{{topic.name}}</h3>
     </div>
-    <div *ngFor="let article of articles; index as i" class="flex rounded-full p-1 bg-gray-600 hover:shadow hover:bg-gray-800 my-2 text-sm">
+    <div *ngFor="let article of articles; index as i" class="flex p-1 hover:shadow hover:bg-gray-600 p-2 pl-4 text-sm">
         <app-pill 
             [content]="article.provider_code" 
             [bgColor]="'#9efffa'"

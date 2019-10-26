@@ -121,7 +121,7 @@ export class BubbleChartComponent implements OnInit, OnChanges {
       var borderColor = this.getBorderColor(this.topics[index].category);
       var x = this.topics[index].time_active;
       var y = this.topics[index].sentiment_score;
-      var r = this.topics[index].perco_score / 1.75;
+      var r = this.topics[index].coffeepot_score/2;
 
       var dataset = {
         label: label,
