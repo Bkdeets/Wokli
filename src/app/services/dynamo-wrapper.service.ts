@@ -1,25 +1,26 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from "@angular/core";
 import axios, { AxiosRequestConfig, AxiosPromise } from "axios";
-
 @Injectable({
   providedIn: "root"
 })
 export class DynamoWrapperService {
   proxyurl = "https://cors-anywhere.herokuapp.com/";
-  URL_BASE = "???????";
-  API_KEY = "";
+  DEV_BASE_URL = "https://gt27qknc71.execute-api.us-east-1.amazonaws.com/dev/"
   INSTANCE;
 
   constructor() {
     this.INSTANCE = axios.create({
-      baseURL: this.proxyurl + this.URL_BASE,
+      baseURL: this.proxyurl + this.DEV_BASE_URL,
       timeout: 10000,
-      headers: {}
+      headers: {
+        "x-api-key" : environment.BACKEND_API_KEY
+      }
     });
   }
 
-  async getArticleByProvider(code) {
-    let endpoint = '/articles?provider=' + code
+  async getTopArticles(limit) {
+    let endpoint = '/articles?limit='+limit;
     return this.INSTANCE.get(endpoint)
       .then(function(response) {
         return {

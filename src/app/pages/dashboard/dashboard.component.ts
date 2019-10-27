@@ -17,23 +17,6 @@ export class DashboardComponent implements OnInit {
       coffeepot_score: 67,
       category: "Weather",
       time_active: 1,
-      news_items: [
-        {
-          provider_code: "NYT",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "NYT",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "NYT",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-      ]
     },
     {
       id: 2,
@@ -42,24 +25,7 @@ export class DashboardComponent implements OnInit {
       sentiment_score: 50,
       coffeepot_score: 12,
       category: "Finance",
-      time_active: 9,
-      news_items: [
-        {
-          provider_code: "TWTR",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "TWTR",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "TWTR",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-      ]
+      time_active: 9
     },
     {
       id: 3,
@@ -68,24 +34,7 @@ export class DashboardComponent implements OnInit {
       sentiment_score: 51,
       coffeepot_score: 100,
       category: "Politics",
-      time_active: 5,
-      news_items: [
-        {
-          provider_code: "Reddit",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "Reddit",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "Reddit",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-      ]
+      time_active: 5
     },
     {
       id: 4,
@@ -94,24 +43,7 @@ export class DashboardComponent implements OnInit {
       sentiment_score: -28,
       coffeepot_score: 43,
       category: "Weather",
-      time_active: 6,
-      news_items: [
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-      ]
+      time_active: 6
     },
     {
       id: 5,
@@ -120,24 +52,7 @@ export class DashboardComponent implements OnInit {
       sentiment_score: 8,
       coffeepot_score: 55,
       category: "Weather",
-      time_active: 3,
-      news_items: [
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-      ]
+      time_active: 3
     },
     {
       id: 6,
@@ -146,24 +61,7 @@ export class DashboardComponent implements OnInit {
       sentiment_score: -58,
       coffeepot_score: 82,
       category: "Weather",
-      time_active: 2,
-      news_items: [
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-      ]
+      time_active: 2
     },
     {
       id: 7,
@@ -172,24 +70,7 @@ export class DashboardComponent implements OnInit {
       sentiment_score: -88,
       coffeepot_score: 33,
       category: "Weather",
-      time_active: 4,
-      news_items: [
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-        {
-          provider_code: "WSJ",
-          summary: "Fee Fi Fo Fum",
-          link: "goheretothis.com"
-        },
-      ]
+      time_active: 4
     }
   ]
 
