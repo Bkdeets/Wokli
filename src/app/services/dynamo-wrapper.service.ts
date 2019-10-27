@@ -22,8 +22,6 @@ export class DynamoWrapperService {
   }
 
   async getTopArticles(limit) {
-    console.log(process.env);
-    console.log(environment.BACKEND_API_KEY);
     let endpoint = '/articles?limit='+limit;
     return this.INSTANCE.get(endpoint)
       .then(function(response) {

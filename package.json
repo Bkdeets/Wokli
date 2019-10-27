@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
-    "build": "ng build",
+    "config": "ts-node make-env.ts",
+    "start": "npm run config && ng serve",
+    "build": "npm run config && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "npm run config && ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +26,9 @@
     "@angular/router": "~8.2.4",
     "axios": "^0.19.0",
     "chart.js": "^2.8.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "tailwindcss": "^1.1.2",
@@ -49,7 +52,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
-    "ts-node": "~7.0.0",
+    "ts-node": "^7.0.1",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   },
