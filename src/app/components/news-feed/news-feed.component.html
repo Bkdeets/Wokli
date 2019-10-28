@@ -5,7 +5,7 @@
     <div *ngFor="let article of articles; index as i" class="flex p-1 hover:shadow hover:bg-gray-600 p-2 pl-4 text-sm">
         <app-pill 
             [content]="article.provider_code" 
-            [bgColor]="'#9efffa'"
+            [bgColor]="getBgColor(article.provider_code)"
             id="{{i+1}}number"></app-pill>
         <p>{{article.summary}}</p>
     </div>

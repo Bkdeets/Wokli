@@ -38,4 +38,13 @@ export class NewsFeedComponent implements OnChanges, OnInit {
     }
   }
 
+  getBgColor(provider_code) {
+    switch (provider_code) {
+      case 'YHN':
+        return 'rgba(76,0,200,1)';
+      case 'RED':
+        return 'rgba(252,44,8,1)'
+    }
+  }
+
 }

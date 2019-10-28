@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "config": "ts-node make-env.ts",
+    "devstart": "npm run config && ng serve",
     "start": "node server.js",
     "build": "npm run config && ng build",
     "test": "ng test",
