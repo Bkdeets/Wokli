@@ -1,12 +1,16 @@
 <div class="rounded bg-gray-700 w-full py-4">
-    <div class="mb-1 mx-auto font-weight-bold text-center">
+    <div class="mb-1 mx-auto max-h-full font-weight-bold text-center">
         <h3 class="text-lg">{{topic.name}}</h3>
     </div>
-    <div *ngFor="let article of articles; index as i" class="flex p-1 hover:shadow hover:bg-gray-600 p-2 pl-4 text-sm">
-        <app-pill 
-            [content]="article.provider_code" 
-            [bgColor]="getBgColor(article.provider_code)"
-            id="{{i+1}}number"></app-pill>
-        <p>{{article.summary}}</p>
+    <div id="news-feed" class="overflow-auto">
+        <div 
+            *ngFor="let article of articles; index as i" class="flex p-1 hover:shadow hover:bg-gray-600 p-2 pl-4 text-sm"
+            (click)="openLink(article.link)">
+            <app-pill 
+                [content]="article.provider_code"
+                [bgColor]="getBgColor(article.provider_code)"
+                id="{{i+1}}number"></app-pill>
+            <p>{{article.summary}}</p>
+        </div>
     </div>
 </div>

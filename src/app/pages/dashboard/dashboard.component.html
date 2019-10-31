@@ -1,13 +1,20 @@
-<div class="w-100 px-10 py-10 mx-auto flex text-white">
-  <div id="row-1" class="w-3/12 mr-5">
-    <app-topic-list [topics]="topics" (selected)="setSelectedTopic($event)" class=""></app-topic-list>
+<div id="dashboard" class="w-100 px-10 py-10 mx-auto flex text-white h-screen">
+  <div id="row-1" class="w-3/12 mr-5 overflow-auto">
+    <app-topic-list [topics]="topics" (selected)="setSelectedTopic($event)" class="h-full"></app-topic-list>
   </div>
-  <div id="row-2" class="w-9/12">
-    <div class="flex">
-      <div id="chart" class="mb-5 bg-grey-500 rounded w-10/12">
+  <div id="row-2" class="w-7/12 mr-5">
+    <div class="flex-col">
+      <div id="chart" class="mb-5 bg-grey-500 rounded w-full">
           <app-bubble-chart [topics]="topics" [selected_topic]="selected_topic"></app-bubble-chart>
       </div>
-      <div class="w-2/12 pl-2 py-1">
+      <div class="w-full">
+        <app-news-feed [topic]="selected_topic"></app-news-feed>
+      </div>
+    </div>
+  </div>
+  <div id="row-3" class="w-2/12">
+    <div class="flex-col">
+      <div class="pl-2 py-1 mb-10">
         <p class="">{{selected_topic.name}}</p>
         <p class="pb-5 text-sm text-blue-500">{{selected_topic.category}}</p>
         <p class="">Bean score (?)</p>
@@ -17,10 +24,9 @@
         <p class="">Age</p>
         <p class="pb-1 text-sm text-green-400">{{selected_topic.time_active}} Days</p>
       </div> 
-    </div>
-    <div class="flex">
-      <app-news-feed [topic]="selected_topic" class="w-10/12"></app-news-feed>
-      <div class="ml-5 h-64 bg-white text-black w-2/12" id="adbox2">Ad Here</div>
+      <div class="flex">
+        <div class="h-64 bg-white text-black w-full" id="adbox2">Ad Here</div>
+      </div>
     </div>
   </div>
 </div>
