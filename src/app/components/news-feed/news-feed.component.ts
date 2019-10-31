@@ -25,11 +25,13 @@ export class NewsFeedComponent implements OnChanges, OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(){
-    let dash_height = document.getElementById('dashboard').offsetHeight;
-    let news_feed = document.getElementById('news-feed')
-    news_feed.style.maxHeight = String(dash_height*.25) + 'px';
-    console.log(news_feed);
-    console.log(dash_height);
+    const dash_h = document.getElementById('dashboard').offsetHeight;
+    const chart_h = document.getElementById('chart-div').offsetHeight;
+    const margin_h = 16*5;
+    const padding_h = 16*6;
+    const news_feed_h = dash_h - chart_h - margin_h - padding_h;
+    let news_feed_elem = document.getElementById('news-feed');
+    news_feed_elem.style.maxHeight = String(news_feed_h) + 'px';
   }
 
   openLink(url) {

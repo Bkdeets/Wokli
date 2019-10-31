@@ -1,6 +1,6 @@
 <div id="dashboard" class="w-100 px-10 py-10 mx-auto flex text-white h-screen">
-  <div id="row-1" class="w-3/12 mr-5 overflow-auto">
-    <app-topic-list [topics]="topics" (selected)="setSelectedTopic($event)" class="h-full"></app-topic-list>
+  <div id="row-1" class="w-3/12 mr-5">
+    <app-topic-list [topics]="topics" (selected)="setSelectedTopic($event)" ></app-topic-list>
   </div>
   <div id="row-2" class="w-7/12 mr-5">
     <div class="flex-col">
