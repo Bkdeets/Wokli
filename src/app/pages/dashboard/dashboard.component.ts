@@ -1,5 +1,6 @@
 import { DashboardService } from './dashboard.service';
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Topic } from 'src/app/objects/Topic';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,71 +8,18 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  selected_topic: any;
+  selected_topic: Topic;
   topics = [
-    {
-      id: 1,
-      name: "Data Structure Test",
-      tags: ['Tag1', 'Tag2', 'Tag3'],
-      sentiment_score: 25,
-      coffeepot_score: 67,
-      category: "Weather",
-      time_active: 1,
-    },
-    {
-      id: 2,
-      name: "Data Structure Test 2",
-      tags: ['Tag1', 'Tag2', 'Tag3'],
-      sentiment_score: 50,
-      coffeepot_score: 12,
-      category: "Finance",
-      time_active: 9
-    },
-    {
-      id: 3,
-      name: "Data Structure Test 3",
-      tags: ['Tag1', 'Tag2', 'Tag3'],
-      sentiment_score: 51,
-      coffeepot_score: 100,
-      category: "Politics",
-      time_active: 5
-    },
-    {
-      id: 4,
-      name: "Data Structure Test 4",
-      tags: ['Tag1', 'Tag2', 'Tag3'],
-      sentiment_score: -28,
-      coffeepot_score: 43,
-      category: "Weather",
-      time_active: 6
-    },
-    {
-      id: 5,
-      name: "Data Structure Test 5",
-      tags: ['Tag1', 'Tag2', 'Tag3'],
-      sentiment_score: 8,
-      coffeepot_score: 55,
-      category: "Weather",
-      time_active: 3
-    },
-    {
-      id: 6,
-      name: "Data Structure Test 6",
-      tags: ['Tag1', 'Tag2', 'Tag3'],
-      sentiment_score: -58,
-      coffeepot_score: 82,
-      category: "Weather",
-      time_active: 2
-    },
-    {
-      id: 7,
-      name: "Data Structure Test 7",
-      tags: ['Tag1', 'Tag2', 'Tag3'],
-      sentiment_score: -88,
-      coffeepot_score: 33,
-      category: "Weather",
-      time_active: 4
-    }
+    new Topic(1,"Topic 1",['Tag1', 'Tag2', 'Tag3'],25,88,"Weather",1),
+    new Topic(2,"Very Long Topic Name 2",['Tag1', 'Tag2', 'Tag3'],25,67,"Politics",4),
+    new Topic(3,"Very Much Longer Topic Name 3 that should not be this long",['Tag1', 'Tag2', 'Tag3'],25,67,"Finance",8),
+    new Topic(4,"Topic 4",['Tag1', 'Tag2', 'Tag3'],12,35,"Weather",12),
+    new Topic(5,"Topic 5",['Tag1', 'Tag2', 'Tag3'],80,8,"Politics",2),
+    new Topic(6,"Topic 6",['Tag1', 'Tag2', 'Tag3'],56,97,"Finance",1),
+    new Topic(7,"Topic 7",['Tag1', 'Tag2', 'Tag3'],95,20,"Weather",2),
+    new Topic(8,"Topic 8",['Tag1', 'Tag2', 'Tag3'],33,12,"Politics",3),
+    new Topic(9,"Topic 9",['Tag1', 'Tag2', 'Tag3'],28,44,"Weather",10),
+    new Topic(10,"Topic 10",['Tag1', 'Tag2', 'Tag3'],79,67,"Finance",5)
   ]
 
   constructor(

@@ -2,6 +2,7 @@ import { DashboardComponent } from './../../pages/dashboard/dashboard.component'
 import { Component, OnInit, Input, OnChanges } from "@angular/core";
 import { Chart } from "chart.js";
 import { DEFAULT_INTERPOLATION_CONFIG } from "@angular/compiler";
+import { Topic } from 'src/app/objects/Topic';
 
 @Component({
   selector: "app-bubble-chart",
@@ -9,8 +10,8 @@ import { DEFAULT_INTERPOLATION_CONFIG } from "@angular/compiler";
   styleUrls: ["./bubble-chart.component.scss"]
 })
 export class BubbleChartComponent implements OnInit, OnChanges {
-  @Input() topics: any;
-  @Input() selected_topic: any;
+  @Input() topics: Array<Topic>;
+  @Input() selected_topic: Topic;
   dc: DashboardComponent;
 
   constructor() { 
@@ -119,9 +120,9 @@ export class BubbleChartComponent implements OnInit, OnChanges {
         .8
       );
       var borderColor = this.getBorderColor(this.topics[index].category);
-      var x = this.topics[index].time_active;
+      var x = this.topics[index].days_active;
       var y = this.topics[index].sentiment_score;
-      var r = this.topics[index].coffeepot_score/2;
+      var r = this.topics[index].bean_score/2;
 
       var dataset = {
         label: label,

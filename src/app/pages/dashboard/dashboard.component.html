@@ -1,4 +1,4 @@
-<div id="dashboard" class="w-100 px-10 py-10 mx-auto flex text-white h-screen">
+<div id="dashboard" class="w-100 px-10 py-10 mx-auto flex text-white h-screen overflow-auto">
   <div id="row-1" class="w-3/12 mr-5">
     <app-topic-list [topics]="topics" (selected)="setSelectedTopic($event)" ></app-topic-list>
   </div>
@@ -18,11 +18,11 @@
         <p class="">{{selected_topic.name}}</p>
         <p class="pb-5 text-sm text-blue-500">{{selected_topic.category}}</p>
         <p class="">Bean score (?)</p>
-        <p class="pb-5 text-sm text-purple-400">{{selected_topic.coffeepot_score}}</p>
+        <p class="pb-5 text-sm text-purple-400">{{selected_topic.bean_score}}</p>
         <p class="">Sentiment</p>
         <p class="pb-5 text-sm text-red-400">{{selected_topic.sentiment_score}}</p>
         <p class="">Age</p>
-        <p class="pb-1 text-sm text-green-400">{{selected_topic.time_active}} Days</p>
+        <p class="pb-1 text-sm text-green-400">{{selected_topic.days_active}} Days</p>
       </div> 
       <div class="flex">
         <div class="h-64 bg-white text-black w-full" id="adbox2">Ad Here</div>

@@ -1,6 +1,7 @@
 import { DynamoWrapperService } from './../../services/dynamo-wrapper.service';
 import { Component, OnInit, Input, OnChanges, AfterContentInit } from '@angular/core';
 import { TopicListComponent } from '../topic-list/topic-list.component';
+import { Article } from 'src/app/objects/Article';
 
 @Component({
   selector: 'app-news-feed',
@@ -43,23 +44,18 @@ export class NewsFeedComponent implements OnChanges, OnInit, AfterContentInit {
     // this.articles = [];
     // for (let res of results['response']['data']) {
     //   this.articles.push(
-    //     {
-    //       provider_code: res.provider_code.toUpperCase(),
-    //       summary: res.headline,
-    //       link: res.url
-    //     }
+    //     new Article(res.provider_code.toUpperCase(), res.headline, res.url)
     //   )
     // }
     this.articles = [
-      {provider_code: "YHN", summary: "39 Bodies Including One Teenager Found in Back of Semitrailer in Britain", link: "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"},
-      {provider_code: "YHN", summary: "After El Paso and Odessa shootings, my plan to reduce mass violence: Sen. John Cornyn", link: "https://news.yahoo.com/el-paso-odessa-shootings-plan-152756756.html"},
-      {provider_code: "YHN", summary: "ICE agent repeatedly raped and impregnated immigra…ars while threatening deportation, lawsuit claims", link: "https://news.yahoo.com/ice-agent-repeatedly-raped-impregnated-170954298.html"},
-      {provider_code: "YHN", summary: "Former ICE Head Slams L.A. Police for Releasing Illegal Immigrants", link: "https://news.yahoo.com/former-ice-head-slams-l-191646900.html"},
-      {provider_code: "YHN", summary: "Bernie Sanders rolled out his marijuana legalization plan at 4:20 p.m.", link: "https://news.yahoo.com/bernie-sanders-rolled-marijuana-legalization-212300320.html"},
-      {provider_code: "YHN", summary: "39 Bodies Including One Teenager Found in Back of Semitrailer in Britain", link: "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"},
-      {provider_code: "YHN", summary: "After El Paso and Odessa shootings, my plan to reduce mass violence: Sen. John Cornyn", link: "https://news.yahoo.com/el-paso-odessa-shootings-plan-152756756.html"},
-      {provider_code: "YHN", summary: "ICE agent repeatedly raped and impregnated immigra…ars while threatening deportation, lawsuit claims", link: "https://news.yahoo.com/ice-agent-repeatedly-raped-impregnated-170954298.html"},
-      {provider_code: "YHN", summary: "Former ICE Head Slams L.A. Police for Releasing Illegal Immigrants", link: "https://news.yahoo.com/former-ice-head-slams-l-191646900.html"}
+      new Article("YHN", "Short one", "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"),
+      new Article("RED", "LOooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong one", "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"),
+      new Article("YHN", "39 Bodies Including One Teenager Found in Back of Semitrailer in Britain", "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"),
+      new Article("RED", "39 Bodies Including One Teenager Found in Back of Semitrailer in Britain", "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"),
+      new Article("YHN", "39 Bodies Including One Teenager Found in Back of Semitrailer in Britain", "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"),
+      new Article("RED", "39 Bodies Including One Teenager Found in Back of Semitrailer in Britain", "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"),
+      new Article("YHN", "39 Bodies Including One Teenager Found in Back of Semitrailer in Britain", "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"),
+      new Article("RED", "39 Bodies Including One Teenager Found in Back of Semitrailer in Britain", "https://news.yahoo.com/39-bodies-including-one-teenager-123746693.html"),
     ];
 }
 
@@ -70,6 +66,13 @@ export class NewsFeedComponent implements OnChanges, OnInit, AfterContentInit {
       case 'RED':
         return 'rgba(252,44,8,.5)'
     }
+  }
+
+  shortDisplay(text: String){
+    if(text.length > 80){
+      return text.substr(0,80) + '...'
+    }
+    return text
   }
 
 }
