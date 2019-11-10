@@ -22,7 +22,8 @@ export class TopicListComponent implements OnInit, AfterContentInit {
     const dash_h = document.getElementById('dashboard').offsetHeight;
     let topic_list_elem = document.getElementById('topic-list');
     const margin_h = 16*5;
-    const topic_list_h = dash_h - margin_h;
+    const padding_h = 16*4;
+    const topic_list_h = dash_h - margin_h - padding_h;
     topic_list_elem.style.height = String(topic_list_h) + 'px';
   }
 

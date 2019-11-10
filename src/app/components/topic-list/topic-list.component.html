@@ -1,21 +1,23 @@
-<div id="topic-list" class="rounded bg-gray-700 w-full py-4 overflow-y-auto">
+<div class="rounded bg-gray-700 w-full py-4">
     <h3 class="text-lg text-center mb-1">Top Topics</h3>
-    <div *ngFor="let topic of topics; index as i"
-    class="bg-gray-700 py-2 hover:shadow hover:bg-gray-600 pl-2 overflow-x-hidden overflow-y-auto whitespace-no-wrap"
-    (click)="setDashboardTopic(topic.name)">
-        <div class="px-1 pl-2 py-1 flex items-center">
-            <app-topic-number 
-                [topic]="topic" 
-                id="{{i+1}}number"></app-topic-number>
-            <p>{{shortDisplay(topic.name)}}</p>
-        </div>
-        <div class="flex pl-4 mb-2">
-            <app-pill 
-                *ngFor="let tag of topic.tags; index as i"
-                [content]="tag" 
-                id="{{i+1}}tag"
-                class="text-2xs text-gray-500">
-            </app-pill>
+    <div id="topic-list" class="overflow-y-auto ">
+        <div *ngFor="let topic of topics; index as i"
+        class="bg-gray-700 py-2 hover:shadow hover:bg-gray-600 pl-2 overflow-x-hidden whitespace-no-wrap"
+        (click)="setDashboardTopic(topic.name)">
+            <div class="px-1 pl-2 py-1 flex items-center">
+                <app-topic-number 
+                    [topic]="topic" 
+                    id="{{i+1}}number"></app-topic-number>
+                <p>{{shortDisplay(topic.name)}}</p>
+            </div>
+            <div class="flex pl-4 mb-2">
+                <app-pill 
+                    *ngFor="let tag of topic.tags; index as i"
+                    [content]="tag" 
+                    id="{{i+1}}tag"
+                    class="text-2xs text-gray-500">
+                </app-pill>
+            </div>
         </div>
     </div>
 </div>
